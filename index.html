@@ -2047,6 +2047,7 @@ const state = {
   bets: [],
   selectedPick: null, // { matchupId, week, betType, teamName?, opponentName?, side?, favoriteName?, spread?, totalLine?, multiplier }
   expandedMatchups: {},
+  heroExpanded: false,
   oddsInfoDismissed: localStorage.getItem("fantasybet:oddsInfoDismissed") === "1",
 };
 
@@ -2337,13 +2338,21 @@ function renderCurrentWeek() {
       }
     });
   });
-  el.matchupsList.querySelectorAll(".explainer-toggle").forEach((btn) => {
+  el.matchupsList.querySelectorAll(".explainer-toggle[data-matchup-id]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const matchupId = Number(btn.dataset.matchupId);
       state.expandedMatchups[matchupId] = !state.expandedMatchups[matchupId];
       renderCurrentWeek();
     });
   });
+
+  const heroToggle = document.getElementById("hero-toggle");
+  if (heroToggle) {
+    heroToggle.addEventListener("click", () => {
+      state.heroExpanded = !state.heroExpanded;
+      renderCurrentWeek();
+    });
+  }
 }
 
 function renderHeroCard(m) {
@@ -2369,6 +2378,20 @@ function renderHeroCard(m) {
       </div>`
     : "";
 
+  const expanded = state.heroExpanded;
+
+  const detailsHtml = expanded
+    ? `
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-label">To win</div><div class="hero-stat-value">${mult(m.team1_payout_multiplier)} / ${mult(m.team2_payout_multiplier)}</div></div>
+        <div class="hero-stat"><div class="hero-stat-label">Spread</div><div class="hero-stat-value">${favoriteSpreadLabel}</div></div>
+        <div class="hero-stat"><div class="hero-stat-label">Total pts</div><div class="hero-stat-value">${m.total_line.toFixed(1)}</div></div>
+      </div>
+      <div class="hero-note">Betting's off on your own game — everyone else in the league can still bet on it.</div>
+      ${activityHtml}
+    `
+    : "";
+
   return `
     <div class="matchup-card hero-card blueprint elev-md">
       ${CORNERS}
@@ -2384,13 +2407,11 @@ function renderHeroCard(m) {
           <div><div class="hero-team-name">${opp.name}</div><div class="hero-team-proj">${opp.proj != null ? `${opp.proj} proj` : ""}</div></div>
         </div>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-label">To win</div><div class="hero-stat-value">${mult(m.team1_payout_multiplier)} / ${mult(m.team2_payout_multiplier)}</div></div>
-        <div class="hero-stat"><div class="hero-stat-label">Spread</div><div class="hero-stat-value">${favoriteSpreadLabel}</div></div>
-        <div class="hero-stat"><div class="hero-stat-label">Total pts</div><div class="hero-stat-value">${m.total_line.toFixed(1)}</div></div>
-      </div>
-      <div class="hero-note">Betting's off on your own game — everyone else in the league can still bet on it.</div>
-      ${activityHtml}
+      ${detailsHtml}
+      <button class="explainer-toggle ${expanded ? "expanded" : ""}" id="hero-toggle" type="button">
+        ${expanded ? "Hide details" : "Show details"}
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
     </div>`;
 }
 
