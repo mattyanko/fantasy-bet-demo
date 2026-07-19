@@ -571,8 +571,9 @@ button {
 }
 
 .hero-note {
-  font-size: 12.5px;
-  color: var(--color-neutral-600);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent-700);
 }
 
 .activity-label {
@@ -2387,7 +2388,6 @@ function renderHeroCard(m) {
         <div class="hero-stat"><div class="hero-stat-label">Spread</div><div class="hero-stat-value">${favoriteSpreadLabel}</div></div>
         <div class="hero-stat"><div class="hero-stat-label">Total pts</div><div class="hero-stat-value">${m.total_line.toFixed(1)}</div></div>
       </div>
-      <div class="hero-note">Betting's off on your own game — everyone else in the league can still bet on it.</div>
       ${activityHtml}
     `
     : "";
@@ -2407,6 +2407,7 @@ function renderHeroCard(m) {
           <div><div class="hero-team-name">${opp.name}</div><div class="hero-team-proj">${opp.proj != null ? `${opp.proj} proj` : ""}</div></div>
         </div>
       </div>
+      <div class="hero-note">No betting on your own matchup — everyone else in the league can still bet on it.</div>
       ${detailsHtml}
       <button class="explainer-toggle ${expanded ? "expanded" : ""}" id="hero-toggle" type="button">
         ${expanded ? "Hide details" : "Show details"}
