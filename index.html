@@ -39,8 +39,8 @@
   --color-neutral-100: #f5f5f8;
   --color-neutral-200: #e7e7ea;
   --color-neutral-300: #d4d4d7;
-  --color-neutral-600: #7a7a7d;
-  --color-neutral-700: #5d5d60;
+  --color-neutral-600: #5f5f5f;
+  --color-neutral-700: #454547;
   --color-neutral-800: #424244;
   --color-neutral-900: #2b2b2d;
 
@@ -90,11 +90,26 @@ body {
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.5;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 button {
   font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-700);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .hidden {
@@ -169,11 +184,11 @@ button {
   border-radius: 0;
 }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
-.btn-primary { background: var(--color-accent); color: var(--color-bg); border-color: var(--color-accent); }
-.btn-primary:active { background: var(--color-accent-700); }
+.btn-primary { background: var(--color-accent-700); color: var(--color-bg); border-color: var(--color-accent-700); }
+.btn-primary:active { background: var(--color-accent-800); }
 .btn-secondary:hover { background: rgba(29, 31, 32, 0.06); }
 .btn-block { width: 100%; margin-top: var(--space-2); }
-.btn-icon { width: 36px; height: 36px; padding: 0; border-radius: 999px; color: var(--color-neutral-700); }
+.btn-icon { width: 40px; height: 40px; padding: 0; border-radius: 999px; color: var(--color-neutral-700); }
 .btn-icon:disabled { opacity: 0.35; }
 
 .tag {
@@ -226,7 +241,7 @@ button {
   border: 1px solid var(--color-divider);
   border-radius: 0;
 }
-.input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: -1px; }
+.input:focus-visible { outline: 2px solid var(--color-accent-700); outline-offset: -1px; }
 
 .seg {
   display: inline-flex;
@@ -244,7 +259,7 @@ button {
   color: var(--color-text);
 }
 .seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
-.seg-opt.active { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt.active { background: var(--color-accent-700); color: var(--color-bg); }
 
 .hr { height: 1px; border: 0; margin: var(--space-3) 0; background: var(--color-divider); }
 
@@ -329,12 +344,12 @@ button {
 }
 
 .wallet-of {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--color-neutral-600);
 }
 
 .wallet-committed {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--color-neutral-600);
   margin-left: auto;
 }
@@ -366,7 +381,7 @@ button {
 
 .odds-banner-text {
   flex: 1;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -380,7 +395,8 @@ button {
   border: none;
   cursor: pointer;
   color: var(--color-neutral-700);
-  padding: 2px;
+  padding: 8px;
+  margin: -8px -8px -8px 0;
   flex-shrink: 0;
 }
 
@@ -431,8 +447,8 @@ button {
 }
 
 .week-status {
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-neutral-600);
   padding-bottom: var(--space-3);
@@ -506,7 +522,7 @@ button {
 }
 
 .hero-team-proj {
-  font-size: 11px;
+  font-size: 12.5px;
   color: var(--color-neutral-600);
 }
 
@@ -531,7 +547,7 @@ button {
 }
 
 .hero-stat-label {
-  font-size: 9px;
+  font-size: 10.5px;
   letter-spacing: 0.04em;
   color: var(--color-neutral-600);
   text-transform: uppercase;
@@ -544,7 +560,7 @@ button {
 }
 
 .hero-note {
-  font-size: 11px;
+  font-size: 12.5px;
   color: var(--color-neutral-600);
 }
 
@@ -559,7 +575,7 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12.5px;
+  font-size: 14px;
 }
 
 .matchups-divider {
@@ -595,7 +611,7 @@ button {
 }
 
 .grid-col-label {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.04em;
   color: var(--color-neutral-600);
   text-transform: uppercase;
@@ -623,7 +639,7 @@ button {
 }
 
 .grid-team-proj {
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: var(--color-neutral-600);
 }
 
@@ -636,15 +652,15 @@ button {
 }
 
 .grid-btn-caption {
-  font-size: 9.5px;
+  font-size: 10px;
   color: var(--color-neutral-600);
   font-family: var(--font-body);
   font-weight: 400;
 }
 
 .grid-btn.selected {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+  background: var(--color-accent-700);
+  border-color: var(--color-accent-700);
   color: var(--color-bg);
 }
 
@@ -679,7 +695,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--color-neutral-700);
   background: var(--color-neutral-100);
@@ -698,7 +714,8 @@ button {
 }
 
 .placeholder-card {
-  opacity: 0.75;
+  border-style: dashed;
+  background: var(--color-neutral-100);
 }
 
 .recap-teams,
@@ -745,7 +762,7 @@ button {
 }
 
 .own-matchup-note {
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--color-neutral-600);
   line-height: 1.5;
 }
@@ -785,7 +802,7 @@ button {
 }
 
 .bet-card-meta {
-  font-size: 11px;
+  font-size: 12.5px;
   color: var(--color-neutral-600);
 }
 
@@ -801,7 +818,7 @@ button {
 }
 
 .bet-card-sub {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--color-neutral-600);
 }
 
@@ -848,6 +865,8 @@ button {
 /* ══════════════════ Standings ══════════════════ */
 
 .standings-caption {
+  caption-side: top;
+  text-align: left;
   font-size: 11px;
   letter-spacing: 0.1em;
   color: var(--color-neutral-600);
@@ -910,7 +929,7 @@ button {
 }
 
 .profile-manager {
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--color-neutral-600);
 }
 
@@ -1025,7 +1044,7 @@ button {
 }
 
 .sheet-meta {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--color-neutral-600);
 }
 
@@ -1034,7 +1053,8 @@ button {
   border: none;
   cursor: pointer;
   color: var(--color-neutral-700);
-  padding: 2px;
+  padding: 8px;
+  margin: -8px -8px -8px 0;
 }
 
 /* ══════════════════ Bet slip ══════════════════ */
@@ -1054,12 +1074,12 @@ button {
 }
 
 .bet-slip-pick .pick-sub {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--color-neutral-600);
 }
 
 .bet-slip-available {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--color-neutral-600);
   margin-bottom: var(--space-2);
 }
@@ -1101,9 +1121,9 @@ button {
 }
 
 .chip:active {
-  background: var(--color-accent);
+  background: var(--color-accent-700);
   color: var(--color-bg);
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-700);
 }
 
 .bet-slip-payout {
@@ -1125,7 +1145,7 @@ button {
 }
 
 .bet-slip-avail-line {
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--color-neutral-600);
 }
 
@@ -1258,48 +1278,48 @@ button {
     <div id="odds-banner" class="odds-banner hidden">
       <div class="odds-banner-text"><strong>How the numbers work —</strong> that multiplier (like 1.6x) is what your wager pays if you're right. Bet 100 pts at 1.6x and you win 160 pts back.</div>
       <button id="odds-banner-dismiss" class="odds-banner-dismiss" type="button" aria-label="Dismiss">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
 
     <main class="app-main">
       <!-- MATCHUPS TAB -->
-      <section id="tab-matchups" class="tab-panel">
+      <section id="tab-matchups" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-matchups" tabindex="0">
         <div class="week-nav">
           <button id="week-prev" class="btn-icon" type="button" aria-label="Previous week">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <span id="week-label">Week 3</span>
           <button id="week-next" class="btn-icon" type="button" aria-label="Next week">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </div>
-        <div id="week-status" class="week-status"></div>
+        <div id="week-status" class="week-status" aria-live="polite"></div>
         <div id="matchups-list" class="matchups-list"></div>
       </section>
 
       <!-- MY BETS TAB -->
-      <section id="tab-bets" class="tab-panel hidden">
+      <section id="tab-bets" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-bets" tabindex="0">
         <div class="panel-header">
           <h1>My Bets</h1>
-          <div class="seg" id="bets-filter">
-            <button class="seg-opt active" data-status="pending" type="button">Pending</button>
-            <button class="seg-opt" data-status="won" type="button">Won</button>
-            <button class="seg-opt" data-status="lost" type="button">Lost</button>
+          <div class="seg" id="bets-filter" role="radiogroup" aria-label="Filter bets by status">
+            <button class="seg-opt active" data-status="pending" type="button" role="radio" aria-checked="true">Pending</button>
+            <button class="seg-opt" data-status="won" type="button" role="radio" aria-checked="false">Won</button>
+            <button class="seg-opt" data-status="lost" type="button" role="radio" aria-checked="false">Lost</button>
           </div>
         </div>
         <div id="bets-list" class="bets-list"></div>
       </section>
 
       <!-- STANDINGS TAB -->
-      <section id="tab-standings" class="tab-panel hidden">
+      <section id="tab-standings" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-standings" tabindex="0">
         <div class="panel-header">
           <h1>Standings</h1>
           <button id="settle-btn" class="btn-settle" type="button">Settle Week</button>
         </div>
-        <div class="standings-caption">Season standings · bettors</div>
         <div class="table-wrap">
           <table class="table" id="standings-table">
+            <caption class="standings-caption">Season standings · bettors</caption>
             <thead>
               <tr><th>#</th><th>Team</th><th>Record</th><th>Streak</th><th>ROI</th><th>Net pts</th></tr>
             </thead>
@@ -1309,14 +1329,14 @@ button {
       </section>
 
       <!-- PROFILE TAB -->
-      <section id="tab-profile" class="tab-panel hidden">
+      <section id="tab-profile" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-profile" tabindex="0">
         <div id="profile-content"></div>
       </section>
     </main>
 
     <!-- ROSTER SHEET -->
     <div id="roster-sheet-backdrop" class="sheet-backdrop hidden">
-      <div class="sheet">
+      <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="roster-sheet-name">
         <div class="sheet-handle"></div>
         <div class="sheet-header">
           <div>
@@ -1324,7 +1344,7 @@ button {
             <div id="roster-sheet-meta" class="sheet-meta"></div>
           </div>
           <button id="roster-sheet-close" class="icon-btn" type="button" aria-label="Close">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
         </div>
         <div class="table-label accent">Starters</div>
@@ -1340,12 +1360,12 @@ button {
 
     <!-- BET SLIP -->
     <div id="bet-slip-backdrop" class="sheet-backdrop hidden">
-      <div class="sheet bet-slip">
+      <div class="sheet bet-slip" role="dialog" aria-modal="true" aria-labelledby="bet-slip-title">
         <div class="sheet-handle"></div>
         <div class="sheet-header">
-          <div class="sheet-title-sm">Place your bet</div>
+          <div class="sheet-title-sm" id="bet-slip-title">Place your bet</div>
           <button id="bet-slip-close" class="icon-btn" type="button" aria-label="Close">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
         </div>
         <div id="bet-slip-pick" class="bet-slip-pick"></div>
@@ -1370,7 +1390,7 @@ button {
         <p id="bet-message" class="message"></p>
         <button id="bet-slip-confirm" class="btn btn-primary btn-block" type="button">Place Bet</button>
         <div id="bet-slip-success" class="bet-slip-success hidden">
-          <svg class="success-check" viewBox="0 0 52 52" width="56" height="56">
+          <svg class="success-check" viewBox="0 0 52 52" width="56" height="56" aria-hidden="true">
             <circle class="success-check-circle" cx="26" cy="26" r="24" fill="none" />
             <path class="success-check-mark" fill="none" d="M14 27l7 7 17-17" />
           </svg>
@@ -1379,23 +1399,23 @@ button {
       </div>
     </div>
 
-    <div id="toast" class="toast hidden"></div>
+    <div id="toast" class="toast hidden" role="status" aria-live="polite" aria-atomic="true"></div>
 
-    <nav class="tab-bar">
-      <button class="tab-btn active" data-tab="matchups" type="button">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    <nav class="tab-bar" role="tablist" aria-label="Sections">
+      <button id="tab-btn-matchups" class="tab-btn active" data-tab="matchups" type="button" role="tab" aria-selected="true" aria-controls="tab-matchups">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
         <span>Matchups</span>
       </button>
-      <button class="tab-btn" data-tab="bets" type="button">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="1"/><line x1="12" y1="6" x2="12" y2="18" stroke-dasharray="2 2"/></svg>
+      <button id="tab-btn-bets" class="tab-btn" data-tab="bets" type="button" role="tab" aria-selected="false" aria-controls="tab-bets">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1"/><line x1="12" y1="6" x2="12" y2="18" stroke-dasharray="2 2"/></svg>
         <span>My Bets</span>
       </button>
-      <button class="tab-btn" data-tab="standings" type="button">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="16" y="3" width="4" height="17"/></svg>
+      <button id="tab-btn-standings" class="tab-btn" data-tab="standings" type="button" role="tab" aria-selected="false" aria-controls="tab-standings">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="16" y="3" width="4" height="17"/></svg>
         <span>Standings</span>
       </button>
-      <button class="tab-btn" data-tab="profile" type="button">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6 7-6s7 2.1 7 6"/></svg>
+      <button id="tab-btn-profile" class="tab-btn" data-tab="profile" type="button" role="tab" aria-selected="false" aria-controls="tab-profile">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6 7-6s7 2.1 7 6"/></svg>
         <span>Profile</span>
       </button>
     </nav>
@@ -2065,6 +2085,58 @@ const el = {
 
 const CORNERS = `<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>`;
 
+/* ---------- Modal focus management (roster sheet + bet slip) ---------- */
+
+let lastFocusedEl = null;
+
+function captureFocus() {
+  lastFocusedEl = document.activeElement;
+}
+
+function restoreFocus() {
+  if (lastFocusedEl && document.contains(lastFocusedEl)) lastFocusedEl.focus();
+  lastFocusedEl = null;
+}
+
+function focusableEls(container) {
+  return Array.from(
+    container.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+  );
+}
+
+function openSheetEl() {
+  if (!el.betSlipBackdrop.classList.contains("hidden")) return el.betSlipBackdrop.querySelector(".sheet");
+  if (!el.rosterSheetBackdrop.classList.contains("hidden")) return el.rosterSheetBackdrop.querySelector(".sheet");
+  return null;
+}
+
+document.addEventListener("keydown", (e) => {
+  const sheet = openSheetEl();
+  if (!sheet) return;
+
+  if (e.key === "Escape") {
+    if (sheet.closest("#bet-slip-backdrop")) closeBetSlip();
+    else closeRosterSheet();
+    return;
+  }
+
+  if (e.key === "Tab") {
+    const focusables = focusableEls(sheet);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+});
+
 function getInitials(name) {
   const words = name.trim().split(/\s+/);
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
@@ -2072,7 +2144,7 @@ function getInitials(name) {
 }
 
 function avatarHtml(name, size, role) {
-  const bg = role === "b" ? "var(--color-accent-700)" : "var(--color-accent)";
+  const bg = role === "b" ? "var(--color-accent-800)" : "var(--color-accent-700)";
   return `<span class="avatar avatar-${size}" style="background:${bg}">${getInitials(name)}</span>`;
 }
 
@@ -2145,7 +2217,7 @@ async function refreshAll() {
 
 function renderIdentity() {
   el.identityAvatar.textContent = getInitials(state.currentTeamName);
-  el.identityAvatar.style.background = "var(--color-accent)";
+  el.identityAvatar.style.background = "var(--color-accent-700)";
   el.identityName.textContent = state.currentTeamName;
 }
 
@@ -2246,6 +2318,12 @@ function renderCurrentWeek() {
   });
   el.matchupsList.querySelectorAll(".grid-team").forEach((teamEl) => {
     teamEl.addEventListener("click", () => openRosterSheet(teamEl.dataset.teamName));
+    teamEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openRosterSheet(teamEl.dataset.teamName);
+      }
+    });
   });
   el.matchupsList.querySelectorAll(".explainer-toggle").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -2313,7 +2391,7 @@ function renderBettableCard(m) {
   const underdogName = t1IsFav ? m.team2_name : m.team1_name;
 
   const teamRow = (name, role, isFav, proj, sign, side, totalSide) => `
-    <div class="grid-team" data-team-name="${name}">
+    <div class="grid-team" data-team-name="${name}" role="button" tabindex="0" aria-label="View ${name} roster">
       ${avatarHtml(name, "sm", role)}
       <div style="min-width:0;">
         <div class="grid-team-name">${name}${isFav ? '<span class="tag tag-accent">FAV</span>' : ""}</div>
@@ -2349,7 +2427,7 @@ function renderBettableCard(m) {
       </div>
       <button class="explainer-toggle ${expanded ? "expanded" : ""}" data-matchup-id="${m.id}" type="button">
         ${expanded ? "Hide explanation" : "How do spread & total work?"}
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       ${
         expanded
@@ -2363,6 +2441,7 @@ function renderBettableCard(m) {
 }
 
 async function openRosterSheet(teamName) {
+  captureFocus();
   const balance = state.balances.find((b) => b.team_name === teamName);
   el.rosterSheetName.textContent = teamName;
   el.rosterSheetMeta.textContent = balance
@@ -2371,6 +2450,7 @@ async function openRosterSheet(teamName) {
   el.rosterStarters.innerHTML = `<tr><td class="roster-loading">Loading roster…</td></tr>`;
   el.rosterBench.innerHTML = "";
   el.rosterSheetBackdrop.classList.remove("hidden");
+  el.rosterSheetClose.focus();
 
   const roster = await apiGetRoster(teamName, state.currentWeek);
   const starters = roster.filter((p) => p.is_starter);
@@ -2389,6 +2469,7 @@ async function openRosterSheet(teamName) {
 
 function closeRosterSheet() {
   el.rosterSheetBackdrop.classList.add("hidden");
+  restoreFocus();
 }
 
 function renderBets() {
@@ -2429,7 +2510,7 @@ function renderBets() {
 
       return `
       <div class="bet-card-wrap blueprint">
-        <div class="bet-card" data-bet-id="${b.id}">
+        <div class="bet-card" data-bet-id="${b.id}" role="button" tabindex="0" aria-expanded="false">
           <div class="bet-card-top">
             <div class="bet-card-meta">${b.matchup_team1_name} vs ${b.matchup_team2_name} · Week ${b.matchup_week}</div>
             <span class="tag ${statusTagClass}">${b.status === "pending" ? "Pending" : b.status === "won" ? "Won" : b.status === "push" ? "Push" : "Lost"}</span>
@@ -2456,10 +2537,18 @@ function renderBets() {
   });
 
   el.betsList.querySelectorAll(".bet-card").forEach((card) => {
-    card.addEventListener("click", () => {
+    const toggle = () => {
       const betId = card.dataset.betId;
       const info = card.closest(".bet-card-wrap").querySelector(`[data-matchup-info="${betId}"]`);
-      info.classList.toggle("hidden");
+      const expanded = info.classList.toggle("hidden") === false;
+      card.setAttribute("aria-expanded", String(expanded));
+    };
+    card.addEventListener("click", toggle);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggle();
+      }
     });
   });
 }
@@ -2575,6 +2664,7 @@ function onPickGrid(btn) {
 }
 
 function openBetSlip() {
+  captureFocus();
   const pick = state.selectedPick;
   el.betSlipPick.innerHTML =
     pick.betType === "spread"
@@ -2633,6 +2723,7 @@ function closeBetSlip() {
   el.betSlipBackdrop.classList.add("hidden");
   clearSelections();
   state.selectedPick = null;
+  restoreFocus();
 }
 
 el.wagerInput.addEventListener("input", updateBetSlipPayout);
@@ -2698,7 +2789,11 @@ el.rosterSheetBackdrop.addEventListener("click", (e) => {
 
 function switchTab(tabName) {
   state.tab = tabName;
-  el.tabBtns.forEach((b) => b.classList.toggle("active", b.dataset.tab === tabName));
+  el.tabBtns.forEach((b) => {
+    const selected = b.dataset.tab === tabName;
+    b.classList.toggle("active", selected);
+    b.setAttribute("aria-selected", String(selected));
+  });
   Object.entries(el.tabPanels).forEach(([name, panel]) => {
     panel.classList.toggle("hidden", name !== tabName);
   });
@@ -2713,7 +2808,10 @@ el.betsFilter.addEventListener("click", (e) => {
   const btn = e.target.closest(".seg-opt");
   if (!btn) return;
   state.betsFilter = btn.dataset.status;
-  el.betsFilter.querySelectorAll(".seg-opt").forEach((b) => b.classList.toggle("active", b === btn));
+  el.betsFilter.querySelectorAll(".seg-opt").forEach((b) => {
+    b.classList.toggle("active", b === btn);
+    b.setAttribute("aria-checked", String(b === btn));
+  });
   loadBets().then(renderBets);
 });
 
